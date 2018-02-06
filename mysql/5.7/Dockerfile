@@ -3,9 +3,6 @@ ENV MYSQL_RPM mysql57.rpm
 
 LABEL maintainer="tanwenhai@outlook.com"
 
-COPY ./$MYSQL_RPM $MYSQL_RPM
-COPY docker-entrypoint.sh /entrypoint.sh
-
 RUN wget -O ${MYSQL_RPM} https://github.com/tanwenhai/docker-images/raw/master/mysql/5.7/mysql57.rpm \
     && wget -O entrypoint.sh https://raw.githubusercontent.com/tanwenhai/docker-images/master/mysql/5.7/docker-entrypoint.sh \
     && rpm -iUvh ${MYSQL_RPM} \
