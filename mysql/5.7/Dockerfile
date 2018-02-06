@@ -13,7 +13,7 @@ RUN yum -y install wget \
 	&& chmod +x /entrypoint.sh \
 	&& mkdir -p /var/lib/mysql \
 	&& chown -R mysql:mysql /var/lib/mysql \
-	&& wget -O /etc/my.conf https://github.com/tanwenhai/docker-images/raw/master/mysql/5.7/my.conf
+	&& wget -O /etc/my.cnf https://github.com/tanwenhai/docker-images/raw/master/mysql/5.7/my.cnf
 
 VOLUME /var/lib/mysql
 
