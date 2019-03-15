@@ -1,0 +1,5 @@
+discovery.zen.minimum_master_nodes: 2
+
+node.master: false
+node.data: false
+node.ingest: true

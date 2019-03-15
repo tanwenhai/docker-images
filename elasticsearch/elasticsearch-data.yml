@@ -1,0 +1,7 @@
+discovery.zen.minimum_master_nodes: 2
+
+node.master: false
+node.data: true
+node.ingest: false
+
+http.enabled: false
