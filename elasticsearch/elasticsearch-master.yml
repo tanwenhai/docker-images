@@ -1,4 +1,8 @@
 discovery.zen.minimum_master_nodes: 2
+discovery.zen.ping_timeout: 3s
+discovery.zen.fd.ping_interval: 10s
+discovery.zen.fd.ping_timeout: 60s
+discovery.zen.fd.ping_retries: 3
 
 node.master: true
 node.data: false
