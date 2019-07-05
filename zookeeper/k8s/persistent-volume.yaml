@@ -1,0 +1,38 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: zk-pv1
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/zookeeper"
+  persistentVolumeReclaimPolicy: Recycle
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: zk-pv2
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/zookeeper"
+  persistentVolumeReclaimPolicy: Recycle
+---
+kind: PersistentVolume                                      
+apiVersion: v1                                              
+metadata:                                                   
+  name: zk-pv3                                              
+spec:                                                       
+  capacity:
+    storage: 1Gi
+  accessModes:                                              
+  - ReadWriteOnce                                           
+  hostPath:                                                 
+    path: "/var/lib/zookeeper"                              
+  persistentVolumeReclaimPolicy: Recycle                    
