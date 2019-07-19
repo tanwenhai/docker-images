@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+    image: elasticsearch:6.6.2
     container_name: es-client1
     environment:
       - cluster.name=docker-cluster
@@ -23,7 +23,7 @@ services:
     networks:
       - esnet
   elasticsearch2:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+    image: elasticsearch:6.6.2
     container_name: es-master1
     environment:
       - cluster.name=docker-cluster
@@ -42,7 +42,7 @@ services:
     networks:
       - esnet
   elasticsearch3:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+    image: elasticsearch:6.6.2
     container_name: es-data1
     environment:
       - cluster.name=docker-cluster
@@ -61,7 +61,7 @@ services:
     networks:
       - esnet
   elasticsearch4:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+    image: elasticsearch:6.6.2
     container_name: es-data2
     environment:
       - cluster.name=docker-cluster
@@ -80,7 +80,7 @@ services:
     networks:
       - esnet
   elasticsearch5:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+    image: elasticsearch:6.6.2
     container_name: es-master2
     environment:
       - cluster.name=docker-cluster
@@ -99,12 +99,21 @@ services:
     networks:
       - esnet
   kibana:
-    image: docker.elastic.co/kibana/kibana:6.6.2
+    image: kibana:6.6.2
     container_name: kibana
     volumes:
       - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
       - 5601:5601
+    networks:
+      - esnet
+  logstash:
+    image: logstash:6.6.2
+    container_name: logstash
+    volumes:
+      - ./config:/usr/share/logstash/pipeline
+    ports:
+      - 6666:6666
     networks:
       - esnet
 
